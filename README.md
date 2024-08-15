@@ -1,9 +1,9 @@
 # Car-API: A Comprehensive Automotive Data API
 <a href="https://github.com/Techni-Dan/CarAPI/blob/main/LICENSE">
-<img src ="https://img.shields.io/github/license/Techni-Dan/CarAPI" />
+<img src ="https://img.shields.io/github/license/Techni-Dan/ApiCars" />
 </a>
 <a href="https://github.com/Techni-Dan/CarAPI/issues">
-<img src ="https://img.shields.io/github/issues/Techni-Dan/CarAPI" />
+<img src ="https://img.shields.io/github/issues/Techni-Dan/ApiCars" />
 </a><br><br> 
 
 ## Abstract
@@ -95,12 +95,16 @@ symfony console doctrine:migration:migrate
 
 #### Insert JSON Data into the database:
 
-[ImportCarDataCommand.php](/resources/Command/ImportCarDataCommand.php) creates a custom Symfony command that parses [Brands_&_Models.json](/resources/Command/Brands_&_Models.json).
+#### Fixtures
 
-Run the following command in your terminal:
+The [MarqueFixtures.php](/src/DataFixtures/BrandFixtures.php) file creates instances of the Brand class with predefined brand names, saving each instance in the database. It also registers a reference for each brand, allowing them to be retrieved in other fixtures.
+
+The [ModelFixtures.php](/src/DataFixtures/ModelFixtures.php) file is responsible for creating instances of the Model class, associated with specific brands. It uses the references created by BrandFixtures.php to establish relationships between brands and models.
+
+load the fixtures into the database with the command:
 
 ```bash
-php bin/console app:import-car-data  
+php bin/console doctrine:fixtures:load
 ```
 
 #### Start Symfony server
@@ -118,6 +122,14 @@ or
 ## Alternatives
 
 Before using the Car-API, you need to populate your database with car brand and model information. This project provides two scripts located in the [`src/resources/Command/`](/resources/Command/) directory to facilitate this process:
+
+[ImportCarDataCommand.php](/resources/Command/ImportCarDataCommand.php) creates a custom Symfony command that parses [Brands_&_Models.json](/resources/Command/Brands_&_Models.json).
+
+Run the following command in your terminal:
+
+```bash
+php bin/console app:import-car-data  
+```
 
 - **`generatejson.php`:** Generates a JSON file [`Brands & Models.json`](/resources/Command/Brands_&_Models.json) containing a structured representation of car brands and models. 
 - **`generatesql.php`:** Generates an SQL file [`Brands & Models.sql`](/resources/Command/Brands_&_Models.sql) with `INSERT` statements for populating a MySQL database.
