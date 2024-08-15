@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Car-API: A Car Brands & Models Data API{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+<div class="example-wrapper">
+    <h1>Car-API: A Car Brand & Models Data API </h1>
+    <h2>All 120 cars brands and 1891 cars models </h2>
+    <a href="{{path('api_brandsmodels')}}" target="_blank" title="120 cars brands and 1891 cars models">/api/brandsmodels</a>
+    <h2>All 120 cars brands</h2>
+    <a href="{{path('api_brands_index')}}" target="_blank" title="120 cars brands">/api/brands</a>
+    <h2>All 1891 cars models</h2>
+    <a href="{{path('api_models_index')}}" target="_blank" title="1891 cars models">/api/models</a>
+    <h2>Cars models by brand </h2>
+    <a href="{{path('api_brand_models', {'brand': 'Bugatti'}) }}" target="_blank" title="cars models by brand">/api/models/brand</a>
+    <h2>Cars brand by model</h2>
+    <a href="{{path('api_model_brands', {'model': 'Tourbillon'}) }}" target="_blank" title="car brand by model">/api/brand/model</a>
+    <br><br>
+    <h2>Repo GitHub Car Brands & Models Data API</h2>
+    <a href="https://github.com/Techni-Dan/CarAPI" target="_blank" title="Repo GitHub Car Brands & Models Data API" >GitHub<i class="fa-brands fa-github"></i></a>
+</div>
+<p>© Copyright 2024</p>
+{% endblock %}
+
