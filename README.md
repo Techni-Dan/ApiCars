@@ -49,13 +49,13 @@ Car-API offers a streamlined approach to retrieve automotive data, eliminating t
 You can clone this repository to create a local copy on your computer:
 
 ```bash
-git clone git@github.com:Techni-Dan/CarAPI.git
+git clone git@github.com:Techni-Dan/ApiCars.git
 ```
 
 After configuring the work environment you can proceed to installing the necessary components. You need to open the cloned project in your IDE. In the terminal of your IDE you must go to the folder of the newly created project after the cloning if it is not already the case:
 
 ```bash
-cd apicar
+cd apicars
 ```
 
 With this command, in the terminal you install the dependencies of the project present in [composer.json](composer.json):
